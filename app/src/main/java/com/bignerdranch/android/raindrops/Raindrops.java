@@ -1,10 +1,10 @@
 package com.bignerdranch.android.raindrops;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -23,15 +23,30 @@ public class Raindrops extends View{
         super.onDraw(canvas);
         Paint rainColor = new Paint();
         rainColor.setARGB(180,0,0,180);
+        rainColor.setStrokeWidth(20);
         rainColor.setStyle(Paint.Style.FILL_AND_STROKE);
 
-        Body hangmanBody = new Body();
-        Face hangmanFace = new Face();
-        Rect rect = new Rect(hangmanBody.getLeft(), hangmanBody.getTop(),hangmanBody.getRight(),hangmanBody.getBottom());
-
-        canvas.drawRect(rect ,rainColor);
-        canvas.drawCircle(hangmanFace.getX(), hangmanFace.getY(),hangmanFace.getRadius(),hangmanFace.getFaceColor());
-
+        @SuppressLint("DrawAllocation") Body body = new Body();
+        @SuppressLint("DrawAllocation") Face face = new Face();
+        @SuppressLint("DrawAllocation") Rect hbody = new Rect(body.getLeft(), body.getTop(),body.getRight(),body.getBottom());
+        @SuppressLint("DrawAllocation") LeftFoot leftFoot = new LeftFoot();
+        @SuppressLint("DrawAllocation") RightFoot rightFoot = new RightFoot();
+        @SuppressLint("DrawAllocation") LeftHand leftHand = new LeftHand();
+        @SuppressLint("DrawAllocation") RightHand rightHand = new RightHand();
+        @SuppressLint("DrawAllocation") Ground ground = new Ground();
+        @SuppressLint("DrawAllocation") Rect hground = new Rect(ground.getLeft(), ground.getTop(),ground.getRight(),ground.getBottom());
+        @SuppressLint("DrawAllocation") Line1 line1 = new Line1();
+        @SuppressLint("DrawAllocation") Line2 line2 = new Line2();
+        
+        canvas.drawCircle(face.getX(), face.getY(),face.getRadius(),face.getFaceColor());
+        canvas.drawRect(hbody ,rainColor);
+        canvas.drawLines(leftFoot.getPtsLeftFoot(), rainColor);
+        canvas.drawLines(rightFoot.getPtsLeftFoot(), rainColor);
+        canvas.drawLines(leftHand.getPtsLeftFoot(), rainColor);
+        canvas.drawLines(rightHand.getPtsLeftFoot(), rainColor);
+        canvas.drawRect(hground ,rainColor);
+        canvas.drawLines(line1.getPtsLeftFoot(), rainColor);
+        canvas.drawLines(line2.getPtsLeftFoot(), rainColor);
 
 //        Rect rect2 = new Rect(10, 20, 30, 40);
 //        canvas.drawRect(rect, rainColor);

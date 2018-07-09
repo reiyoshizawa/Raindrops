@@ -2,21 +2,21 @@ package com.bignerdranch.android.raindrops;
 
 import android.graphics.Paint;
 
-public class Body {
+public class Ground {
     private int left;
     private int top;
     private int bottom;
     private int right;
     private Paint bodyColor;
 
-    public Body() {
+    public Ground() {
         Paint bodyColor = new Paint();
         bodyColor.setARGB(180,0,0,180);
         bodyColor.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.left = 730;
-        this.top = 300;
-        this.bottom = 550;
-        this.right = 870;
+        this.left = 0;
+        this.top = 800;
+        this.bottom = 900;
+        this.right = 1200;
         this.bodyColor = bodyColor;
     }
 

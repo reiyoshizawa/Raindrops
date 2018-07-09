@@ -2,21 +2,27 @@ package com.bignerdranch.android.raindrops;
 
 import android.graphics.Paint;
 
-public class Body {
+import java.util.ArrayList;
+
+public class LeftFoot {
+
     private int left;
     private int top;
     private int bottom;
     private int right;
+    private float[] ptsLeftFoot = {};
     private Paint bodyColor;
 
-    public Body() {
+    public LeftFoot() {
         Paint bodyColor = new Paint();
-        bodyColor.setARGB(180,0,0,180);
+        bodyColor.setARGB(180, 0, 0, 180);
         bodyColor.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.left = 730;
-        this.top = 300;
-        this.bottom = 550;
-        this.right = 870;
+        bodyColor.setStyle(Paint.Style.FILL_AND_STROKE);
+        this.left = 850;
+        this.top = 500;
+        this.bottom = 650;
+        this.right = 900;
+        this.ptsLeftFoot = new float[]{this.getLeft(),this.getTop(), this.getRight(), this.getBottom()};
         this.bodyColor = bodyColor;
     }
 
@@ -52,11 +58,19 @@ public class Body {
         this.right = right;
     }
 
-    public Paint getPaint() {
+    public float[] getPtsLeftFoot() {
+        return ptsLeftFoot;
+    }
+
+    public void setPtsLeftFoot(float[] ptsLeftFoot) {
+        this.ptsLeftFoot = ptsLeftFoot;
+    }
+
+    public Paint getBodyColor() {
         return bodyColor;
     }
 
-    public void setPaint(Paint paint) {
-        this.bodyColor = paint;
+    public void setBodyColor(Paint bodyColor) {
+        this.bodyColor = bodyColor;
     }
 }
